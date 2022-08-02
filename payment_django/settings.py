@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u54k%o$md@pwhl*x!r0)p%^vx-3!0g8y(4&3m1#eompc2ev-%n'
-RAZORPAY_ID = 'rzp_test_9AfL0ZeAg7BqON'
-RAZORPAY_SECRET_KEY = 'sOGCjCYqfnEo3Y4rMg8XRdHP'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+RAZORPAY_ID = os.environ.get('RAZORPAY_ID')
+RAZORPAY_SECRET_KEY = os.environ.get('RAZORPAY_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
